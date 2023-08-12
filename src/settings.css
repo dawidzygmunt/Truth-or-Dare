@@ -1,0 +1,297 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
+
+body{
+  background: rgb(212,210,223);
+  background: linear-gradient(25deg, rgba(212,210,223,1) 40%, rgb(253,219,192,1) 60%);
+  background-repeat: no-repeat;
+  background-size: cover;
+  overflow-x: hidden;
+}
+
+*{
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+span{
+  font-size: 24px;
+  font-weight: 600;
+}
+
+li, a, button{
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 500;
+  font-size: 16px;
+  color: #010608;
+  text-decoration: none;
+}
+
+.navbar{
+  clear: both;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 30px 5%;
+  padding-bottom: 0;
+}
+
+.logo{
+  cursor: pointer;
+}
+
+.navbar li {
+  display: inline-block;
+  padding: 0px 30px;
+}
+
+.navbar li a{
+  transition: all .3s ease 0s;
+}
+
+.navbar li a:hover{
+  color: #0088a9;
+}
+
+button {
+  padding: 9px 25px;
+  background-color: rgba(0,136,169,1);
+  border: none;
+  border-radius: 50px;
+  cursor: pointer;
+  transition: all 0.3s ease 0s;
+}
+
+button:hover{
+  background-color: rgba(0,136,169,0.8);
+}
+
+.navbar ul {
+  padding-left: 100px ;
+}
+
+
+
+
+/* LEFT PANEL */
+
+.left {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 30px;
+  padding-top: 10px;
+  padding-left: 50px;
+}
+
+.main-frame{
+  min-width: 400px;
+  width: 100%;
+  padding: 20px;
+  padding-right: 0;
+  background-color: rgba(212,210,223,1);
+  margin: 30px 0;
+  border-radius: 30px;
+  box-shadow: 30px 25px 30px -10px rgba(88, 89, 95, 0.7);
+  justify-content: left;
+  align-items: normal;
+  background: linear-gradient(350deg, rgba(212,210,223,1) 70%, rgba(253, 219, 192, 0.082) 90%);
+}
+
+form {
+  text-align: left;
+  height: 100%;
+  padding: 0;
+  margin: 0;
+  filter: none;
+}
+
+.formInput{
+  border: none;
+  outline: none;
+  border-radius: 11px;
+  margin: 20px 0;
+  padding: 20px 10px;
+  height: 30px;
+  width: 90%;
+  filter: none;
+  box-shadow: 10px 10px 10px -8px gray;
+  transition: all 0.3s ease 0s;
+  font-size: 20px;
+  background-color: rgb(239, 237, 241);
+  margin-left: 5px;
+  color: black;
+}
+
+
+.type {
+  margin-top: 0;
+  margin-right: 0;
+  border-radius: 18px;
+  padding: 25px 15px;
+  width: 100%;
+  transform: scale(102%) translateX(-1%); 
+}
+
+.content {
+  height: auto;
+}
+
+.submitButton{
+  padding: 20px 40px;
+  margin: 0 15%;
+  outline: none;
+  border: none;
+  border-radius: 50px;
+  font-size: 16px;
+  float: right;
+  background-color: #eeb086;
+  box-shadow: 3px 3px 10px #c48e6a;
+  color: white;
+}
+
+
+
+
+/* RIGHT SIDE */
+
+.right{
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+
+}
+
+.right-frame{
+  background-color: #0088a9;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+}
+
+.test {
+  justify-content: center;
+  align-items: center;
+  float: left;
+}
+
+.clear{
+  clear: both;
+}
+
+.footer{
+  background-color: #010608;
+  height: 200px;
+  color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+
+.test1337{
+  border: none;
+  outline: none;
+  text-align: center;
+  border-radius: 11px;
+  margin: 20px 0;
+  padding: 0px 0px;
+  width: 90%;
+  filter: none;
+  box-shadow: 10px 10px 10px -8px gray;
+  transition: all 0.3s ease 0s;
+  font-size: 20px;
+  background-color: rgb(239, 237, 241);
+  margin-left: 5px;
+  color: black;
+  font-size: 28px;
+}
+
+div label{
+  margin: 0;
+  margin-left: 10px;
+  transform: translateY(10px);
+  font-weight: 600;
+}
+
+.card{
+  width: 300px;
+  min-height: 400px;
+  max-height: 400px;
+  background-color: #fff;
+  margin-top: 8%;
+  display: flex;
+  align-items: center;
+  text-align: center;
+  border-radius: 30px;
+
+  
+}
+
+.card-type h1{
+  padding: 10px;
+  padding-bottom: 0;
+}
+
+.card-content {
+  padding: 10px 30px;
+  padding-top: 0;
+
+}
+
+.card-wrapper{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 270px;
+}
+
+.card-version {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  padding: 10px 20px;
+}
+
+.center{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+
+.vodka{
+  text-align: right;
+  display: flex;
+  justify-content: right;
+  /* align-items: end; */
+  padding: 10px 15px;
+  width: 100%;
+}
+
+
+.vodka img{
+  width: 40px;
+  padding: 0;
+  margin: 0;
+  text-align: right;
+  justify-content: right
+}
+
+.options{
+  clear: both;
+  padding: 40px;
+  padding-top: 60px;
+}
+
+.options img{
+  width: 60px;
+}
+
+.options button{
+  margin: 20px;
+  padding: 25px 25px;
+  border-radius: 100px;
+  background-color: #ebb78d;
+}

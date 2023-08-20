@@ -1,11 +1,13 @@
 // import './App.css';
 // import './index.css';
 // import LoginPage from './loginPage';
-import MainFrame from './settings';
+// import MainMenu from './strony/menu/mainMenu';
+import NewGame from './component/newGame/newGame';
+// import MainFrame from './settings';
 
 function App() {
   return (
-    <MainFrame />
+    <NewGame />
   );
 }
 

@@ -10,9 +10,14 @@ import Powtorzenia from './form/powtorzenia';
 import vodka from './img/vodka.png'
 import vodkaFilled from './img/shot-filled.png'
 import NavbarMine from './component/navbar';
+import axios from 'axios';
 
 
 function MainFrame(){
+
+
+
+  
   const [typeText, setTypeText] = useState('');
   const [versionText, seVersionText] = useState('');
   const [iterText, setIterText] = useState();
@@ -138,6 +143,23 @@ function MainFrame(){
   })
   
   
+  const tresc = contentText
+  const typ = typeText
+  const ilosc = iterText
+  const kara = vodkaShot
+
+  const handleSubmit = () => {
+    axios.post('/api/v1/cards', { tresc, typ, ilosc, kara })
+      .then(response => {
+        console.log('Odpowiedź serwera:', response.data);
+        // Możesz dodać obsługę odpowiedzi serwera tutaj
+      })
+      .catch(error => {
+        console.error('Błąd:', error);
+      });
+  };
+
+
   
   return (
     <div className="container-">
@@ -148,8 +170,8 @@ function MainFrame(){
       <Row>
         <Col lg="5" className='left '>
           <div className='main-frame'>
-            <form action="#">
-              <select className='test1337' id="" value={typeText} onChange={handlev1}>
+            <form class="card-form">
+              <select className='test1337' id="" value={typeText} onChange={handlev1} name='typ'>
                 <option value="Prawda" className='test1337'>Prawda</option>
                 <option value="Wyzwanie" className='test1337'>Wyzwanie</option>
               </select>
@@ -157,14 +179,18 @@ function MainFrame(){
               <div>
                 <label htmlFor="">Wersja</label>
                 <br />
-                <input type="text" value={versionText} className='formInput' disabled />
+                <input type="text" value={versionText} className='formInput' name='wersja' disabled />
               </div>
 
               <div>
                 <label htmlFor="">Ilość powtórzeń</label>
                 <br />
-                <input type="number" value={iterText} onChange={handlev3} className='formInput' />
+                <input type="number" value={iterText} onChange={handlev3} className='formInput' name='ilosc' />
               </div>
+              
+              {/* Kara */}
+              <input type="number" value={vodkaShot} name='kara'/>
+
               
               <div>
                 <label htmlFor="">Treść</label> <br />
@@ -172,11 +198,13 @@ function MainFrame(){
                   className='formInput content' cols="20" rows="10">
                 </textarea>
 
-                <input type="submit" value='Zatwierdź' className='submitButton' />
+                <input type="submit" onClick={handleSubmit} value='Zatwierdź' className='submitButton' />
               </div>
 
             </form>
           </div>
+
+
         </Col>
 
         <Col lg="7" className='right'>
@@ -224,7 +252,17 @@ function MainFrame(){
       </div>
 
 
+    <script src=".\browser-app.js"></script>
+    
+
+    
+
+
+
   </div>
+
+    
+
   )
 }
 

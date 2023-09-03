@@ -1,6 +1,6 @@
 import axios from "axios"
 
-const playersDOM = document.querySelector('.players')
+  const playersDOM = document.querySelector('.players')
   const loadingDOM = document.querySelector('.loading-text')
   const formDOM = document.querySelector('.player-form')
   const playerInputDOM = document.querySelector('.player-input')

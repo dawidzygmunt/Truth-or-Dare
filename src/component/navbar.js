@@ -1,19 +1,19 @@
-import { Button, Navbar } from 'react-bootstrap';
+import { Navbar } from 'react-bootstrap';
+import { useNavigate } from 'react-router-dom';
 
-function NavbarMine (){
-  return(
+function NavbarMine() {
+  const navigate = useNavigate()
+
+  return (
     <Navbar expand='lg'>
-      <h4>Ashley</h4>
-      {/* <Navbar.Brand>Ashley</Navbar.Brand>
-      <Navbar.Toggle aria-controls="basic-navbar-nav" />
-      <Navbar.Collapse id="basic-navbar-nav"> */}
-        <ul>
-          <li><a href="/#">Strona Główna</a></li>
-          <li><a href="/#">Ustawienia</a></li>
-          <li><a href="/#">Panel Administratora</a></li>
-          <li><a href="/#">Więcej</a></li>
-        </ul>
-        <a href="/#" className='cta'><button>Kontakt</button></a>
+      <h4 onClick={() => navigate('/')}>Ashley</h4>
+      <ul>
+        <li onClick={() => navigate('/')}>Strona Główna</li>
+        <li onClick={() => navigate('/settings')}>Ustawienia</li>
+        <li onClick={() => navigate('')}>Panel Administratora</li>
+        <li><a href="/#">Więcej</a></li>
+      </ul>
+      <a href="/#" className='cta'><button>Kontakt</button></a>
       {/* </Navbar.Collapse> */}
     </Navbar>
   )

@@ -1,19 +1,23 @@
+import { useNavigate } from 'react-router-dom'
 import './menu.css'
 
 
-function MainMenu () {
+function MainMenu() {
+  const navigate = useNavigate()
+
+
   return (
-    <div className="container">
+    <div className="container-main-menu">
       <div id='menu-header'>
         <h1>PRIMO</h1>
         <h3>PRAWDA CHODZI BOSO</h3>
       </div>
       <div id='main-menu'>
         <ul>
-          <li><a href="/newGame"><button>Nowa gra</button></a></li>
-          <li><a href="/continue"><button>Kontynuj</button></a></li>
-          <li><a href="/settings"><button>Ustawienia</button></a></li>
-          <li><a href="/credits"><button>Credits</button></a></li>
+          <li><button onClick={() => navigate('/newGame')}>Nowa gra</button></li>
+          <li><button onClick={() => navigate('/main')}>Kontynuj</button></li>
+          <li><button onClick={()=> navigate('/settings')}>Ustawienia</button></li>
+          <li><button>Credits</button></li>
         </ul>
       </div>
     </div>

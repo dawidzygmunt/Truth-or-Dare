@@ -1,0 +1,26 @@
+function EditPlayer() {
+  return(
+    <div class="container">
+      <form class="single-task-form">
+        <h4>Edit Task</h4>
+        <div class="form-control">
+          <label>Task ID</label>
+          <p class="task-edit-id"></p>
+        </div>
+        <div class="form-control">
+          <label for="name">Name</label>
+          <input type="text" name="name" class="task-edit-name" />
+        </div>
+        <div class="form-control">
+          <label for="completed">completed</label>
+          <input type="checkbox" name="completed" class="task-edit-completed" />
+        </div>
+        <button type="submit" class="block btn task-edit-btn">edit</button>
+        <div class="form-alert"></div>
+      </form>
+      <a href="index.html" class="btn back-link">back to tasks</a>
+    </div>
+  )
+}
+
+export default EditPlayer

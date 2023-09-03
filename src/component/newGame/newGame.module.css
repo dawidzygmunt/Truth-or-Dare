@@ -179,7 +179,7 @@ button.block {
 /*************
      FORM 
 *************/
-form {
+.new-Game-Container form {
   width: 100%;
   background: var(--white);
   border-radius: var(--borderRadius);
@@ -187,15 +187,15 @@ form {
   padding: 2rem 2.5rem;
 }
 
-label {
+.new-Game-Container label {
   display: block;
   font-size: var(--smallText);
   margin-bottom: 0.5rem;
   text-transform: capitalize;
 }
 
-input,
-textarea {
+.new-Game-Container input,
+.new-Game-Container textarea {
   width: 100%;
   padding: 0.375rem 0.75rem;
   border-radius: var(--borderRadius);
@@ -208,7 +208,7 @@ textarea {
   margin-bottom: 1rem;
 }
 
-textarea {
+.new-Game-Container textarea {
   width: 100%;
   height: 7rem;
 }
@@ -263,11 +263,11 @@ textarea {
   }
 }
 
-form> :first-child {
+.new-Game-Container form> :first-child {
   margin-top: 0;
 }
 
-form> :last-child {
+.new-Game-Container form> :last-child {
   margin-bottom: 0;
 }
 
@@ -383,8 +383,9 @@ form> :last-child {
 
 .form-edit-btn {
   background-color: #0c6dfd;
+  font-size: 14px;
   color: white;
-  padding: 8px 15px;
+  padding: 5px 13px;
   margin: 0 10px;
   border-radius: 10px;
   border-color: white;
@@ -393,7 +394,8 @@ form> :last-child {
 .form-edit-btn:hover {
   background-color: #1370fc;
   color: white;
-  padding: 8px 15px;
+  padding: 5px 13px;
+  font-size: 14px;
   margin: 0 10px;
   border-radius: 10px;
   border-color: white;
@@ -403,7 +405,8 @@ form> :last-child {
 .form-delete-btn {
   background-color: #dc3545;
   color: white;
-  padding: 8px 15px;
+  padding: 5px 13px;
+  font-size: 14px;
   margin-left: 10px;
   margin-right: 0;
   border-radius: 10px;
@@ -413,7 +416,8 @@ form> :last-child {
 .form-delete-btn:hover {
   background-color: #e02135;
   color: white;
-  padding: 8px 15px;
+  padding: 5px 13px;
+  font-size: 14px;
   margin-left: 10px;
   margin-right: 0;
   border-radius: 10px;
@@ -428,6 +432,7 @@ form> :last-child {
   color: white;
   font-size: 20px;
   padding: 10px 20px;
+  width: 180px;
   border-color: white;
   border-radius: 20px;
 }
@@ -446,4 +451,26 @@ form> :last-child {
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+.back-btn {
+  background-color: #c92222;
+  color: white;
+  font-size: 20px;
+  padding: 10px 20px;
+  width: 180px;
+  border-color: white;
+  border-radius: 20px;
+  margin-right: 30px;
+}
+
+.back-btn:hover {
+  background-color: #a01919;
+  color: white;
+  font-size: 20px;
+  padding: 10px 20px;
+  width: 180px;
+  border-color: white;
+  border-radius: 20px;
+  margin-right: 30px;
 }

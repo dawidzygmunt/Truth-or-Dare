@@ -1,23 +1,18 @@
 import { Col, Row } from 'react-bootstrap';
 import { useState, useEffect } from 'react';
-import Card from './cardPanel/card';
-import Tresc from './cardPanel/tresc';
 import 'bootstrap/dist/css/bootstrap.css';
-import './settings.css' 
-import Typ from './form/typ';
-import Wersja from './form/wersja';
-import Powtorzenia from './form/powtorzenia';
-import vodka from './img/vodka.png'
-import vodkaFilled from './img/shot-filled.png'
-import NavbarMine from './component/navbar';
+import './settings.css'
+import vodka from '../../img/vodka.png'
+import NavbarMine from '../navbar';
 import axios from 'axios';
 
 
-function MainFrame(){
+
+function AddCardPanel() {
 
 
 
-  
+
   const [typeText, setTypeText] = useState('');
   const [versionText, seVersionText] = useState('');
   const [iterText, setIterText] = useState();
@@ -30,7 +25,7 @@ function MainFrame(){
     setIterText(1)
     setVodkaShot(1)
   }, []);
-  
+
 
   const handlev1 = (event) => {
     const { value } = event.target;
@@ -55,45 +50,45 @@ function MainFrame(){
     setcontentText(value);
     console.log(value);
   }
-  
-  
-  
-  
+
+
+
+
 
   const handleVodka1 = (event) => {
-    const {value } = event.target;
+    const { value } = event.target;
     setVodkaShot(1);
     console.log(vodkaShot);
   }
   const handleVodka2 = (event) => {
-    const {value } = event.target;
+    const { value } = event.target;
     setVodkaShot(2);
     console.log(vodkaShot);
   }
   const handleVodka3 = (event) => {
-    const {value } = event.target;
+    const { value } = event.target;
     setVodkaShot(3);
     console.log(vodkaShot);
   }
 
-  
+
   useEffect(() => {
     const button1 = document.getElementById('button1')
     const button2 = document.getElementById('button2')
     const button3 = document.getElementById('button3')
 
-    if (vodkaShot === 1){
+    if (vodkaShot === 1) {
       button1.style.backgroundColor = "#cf7171"
       button2.style.backgroundColor = "#ebb78d"
       button3.style.backgroundColor = "#ebb78d"
     }
 
-    if (vodkaShot === 2){
+    if (vodkaShot === 2) {
       button2.style.backgroundColor = "#cf7171"
       button3.style.backgroundColor = "#ebb78d"
     }
 
-    if (vodkaShot === 3){
+    if (vodkaShot === 3) {
       button1.style.backgroundColor = "#cf7171"
       button2.style.backgroundColor = "#cf7171"
       button3.style.backgroundColor = "#cf7171"
@@ -106,76 +101,86 @@ function MainFrame(){
     const vodka2 = document.getElementById('vodka-card2')
     const vodka3 = document.getElementById('vodka-card3')
 
-    if (vodkaShot === 1){
+    if (vodkaShot === 1) {
       vodka1.style.display = "none"
       vodka2.style.display = "none"
       vodka3.style.display = "flex"
     }
 
-    if (vodkaShot === 2){
+    if (vodkaShot === 2) {
       vodka1.style.display = "none"
       vodka2.style.display = "flex"
       vodka3.style.display = "flex"
     }
 
-    if (vodkaShot === 3){
+    if (vodkaShot === 3) {
       vodka1.style.display = "flex"
       vodka2.style.display = "flex"
       vodka3.style.display = "flex"
     }
   })
-  
+
 
   useEffect(() => {
     const card = document.getElementById('card')
 
-    if (typeText === 'Wyzwanie'){
+    if (typeText === 'Wyzwanie') {
       card.style.backgroundColor = "black"
       card.style.color = "white"
 
     }
 
-    if (typeText === 'Prawda'){
+    if (typeText === 'Prawda') {
       card.style.backgroundColor = "white"
       card.style.color = "black"
     }
 
   })
-  
-  
-  const tresc = contentText
-  const typ = typeText
-  const ilosc = iterText
-  const kara = vodkaShot
 
-  const handleSubmit = () => {
-    axios.post('/api/v1/cards', { tresc, typ, ilosc, kara })
-      .then(response => {
-        console.log('Odpowiedź serwera:', response.data);
-        // Możesz dodać obsługę odpowiedzi serwera tutaj
-      })
-      .catch(error => {
-        console.error('Błąd:', error);
-      });
-  };
+  const allInputData = {
+    tresc: contentText,
+    typ: typeText,
+    ilosc: iterText,
+    kara: vodkaShot
+  }
 
 
-  
+  const handleSubmit = async () => {
+    try {
+      const response = await axios.post('/api/v1/cards', allInputData)
+      console.log('Odpowiedź serwera:', response.data);
+    } catch (error) {
+      console.error('Błąd:', error);
+    }
+
+
+
+
+    // try {
+    //   const response = await axios.post('/api/v1/cards', {})
+    //   console.log('Odpowiedź serwera:', response.data);
+    // } catch (error) {
+    //   console.error('Błąd:', error);
+    // }
+  }
+
+
+
   return (
-    <div className="container-">
+    <div className="container-settings">
       <NavbarMine />
 
 
-  
+
       <Row>
         <Col lg="5" className='left '>
           <div className='main-frame'>
-            <form class="card-form">
+            <form className="card-form">
               <select className='test1337' id="" value={typeText} onChange={handlev1} name='typ'>
                 <option value="Prawda" className='test1337'>Prawda</option>
                 <option value="Wyzwanie" className='test1337'>Wyzwanie</option>
               </select>
-              
+
               <div>
                 <label htmlFor="">Wersja</label>
                 <br />
@@ -187,18 +192,14 @@ function MainFrame(){
                 <br />
                 <input type="number" value={iterText} onChange={handlev3} className='formInput' name='ilosc' />
               </div>
-              
-              {/* Kara */}
-              <input type="number" value={vodkaShot} name='kara'/>
 
-              
               <div>
                 <label htmlFor="">Treść</label> <br />
-                <textarea name="tresc" value={contentText} onChange={handlev4} 
+                <textarea name="tresc" value={contentText} onChange={handlev4}
                   className='formInput content' cols="20" rows="10">
                 </textarea>
 
-                <input type="submit" onClick={handleSubmit} value='Zatwierdź' className='submitButton' />
+                <input onClick={handleSubmit} value='Zatwierdź' className='submitButton' type='submit' />
               </div>
 
             </form>
@@ -235,13 +236,13 @@ function MainFrame(){
             <button id='button1' className='image-button' onClick={handleVodka1}>
               <img src={vodka} alt="" />
             </button>
-            <button id='button2'className='image-button' onClick={handleVodka2}>
+            <button id='button2' className='image-button' onClick={handleVodka2}>
               <img src={vodka} alt="" />
             </button>
             <button id='button3' className='image-button' onClick={handleVodka3}>
               <img src={vodka} alt="" />
             </button>
-              
+
           </div>
         </Col>
       </Row>
@@ -252,16 +253,16 @@ function MainFrame(){
       </div>
 
 
-    <script src=".\browser-app.js"></script>
-    
-
-    
+      <script src=".\browser-app.js"></script>
 
 
 
-  </div>
 
-    
+
+
+    </div>
+
+
 
   )
 }
@@ -271,4 +272,4 @@ function MainFrame(){
 
 
 
-export default MainFrame;
+export default AddCardPanel;

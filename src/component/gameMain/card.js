@@ -2,6 +2,7 @@ import vodkaPng from '../../img/vodka.png'
 import { useState } from 'react';
 import './card.css'
 import { useNavigate } from 'react-router-dom';
+import axios from 'axios';
 
 
 function Card(props) {
@@ -10,7 +11,22 @@ function Card(props) {
   const versionText = 'Classic'
   let images = null;
 
+
+  const handleDelete = async () => {
+    try {
+      await axios.delete('../api/v1/cards/' + props.cardID)
+      setIsDeleted(true)
+
+    } catch (error) {
+
+    }
+  }
+
   const [isHovered, setIsHovered] = useState(false);
+  const [isDeleted, setIsDeleted] = useState(false);
+  const [isChallenge, setIsChallenge] = useState(null);
+
+
   const handleMouseEnter = () => {
     setIsHovered(true);
   };
@@ -49,14 +65,12 @@ function Card(props) {
 
   const stylized = isHovered ? 'card-cover-active' : 'card-cover-normal'
 
-
-
   return (
-    <div className='ContainerMineCard'>
+    <div className='ContainerMineCard' style={isDeleted ? { display: 'none' } : {}}>
       <div className='card' onClick={handleMouseEnter} onMouseLeave={handleMouseLeave}>
         <div className={stylized}>
-          <button className='edit-btn' onClick={()=> navigate('/admin/edit-single/' + props.cardID)}> Edytuj </button>
-          <button className='delete-btn'> Usuń </button>
+          <button className='edit-btn' onClick={() => navigate('/admin/edit-single/' + props.cardID)}> Edytuj </button>
+          <button className='delete-btn' onClick={handleDelete}> Usuń </button>
         </div>
 
         <div className='card-type'>

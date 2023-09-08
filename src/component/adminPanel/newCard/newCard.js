@@ -6,7 +6,7 @@ import vodka from '../../../img/vodka.png'
 import SideNavbar from '../aside/sideNavbar';
 import Card from '../../gameMain/card';
 
-function AdminSingleCard(props) {
+function AdminNewCard(props) {
 
   const [card, setCard] = useState([])
   const [typeText, setTypeText] = useState('')
@@ -18,10 +18,13 @@ function AdminSingleCard(props) {
   const [clickedButton2, setClickedButton2] = useState(null)
   const [clickedButton3, setClickedButton3] = useState(null)
 
-
-  const updateCard = async () => {
-
-  }
+  useEffect(() => {
+    setTypeText('Prawda')
+    setIterText(1)
+    setVodkaShot(1)
+    setVersionText('Classic')
+    setClickedButton1(true)
+  },[])
 
 
   // Aktualizowanie karty na bieżąco
@@ -58,7 +61,7 @@ function AdminSingleCard(props) {
     setClickedButton1(true)
     setClickedButton2(false)
     setClickedButton3(false)
-    
+
   }
   const handleVodka2 = (event) => {
     const { value } = event.target;
@@ -80,42 +83,22 @@ function AdminSingleCard(props) {
   const handleSubmit = async () => {
     try {
       const data = {
-        typ: {typeText}.typeText,
-        tresc: {contentText}.contentText,
-        kara: {vodkaShot}.vodkaShot,
-        ilosc: {iterText}.iterText
+        typ: { typeText }.typeText,
+        tresc: { contentText }.contentText,
+        kara: { vodkaShot }.vodkaShot,
+        ilosc: { iterText }.iterText
       }
 
       console.log(data);
 
-      const response = await axios.patch('/api/v1/cards/' + cardID, data)
+      const response = await axios.post('/api/v1/cards/', data)
       console.log('Odpowiedź serwera:', response.data);
     } catch (error) {
-      console.log('to jest id karty: ' + cardID);
       console.error('Błąd:', error);
     }
   }
 
 
-  const cardID = useParams().info
-
-  useEffect(() => {
-    const getCard = async () => {
-      try {
-        const response = await axios.get('../../api/v1/cards/' + cardID)
-        setCard(response.data.card)
-        console.log(response.data.card);
-        setTypeText(response.data.card.typ)
-        setContentText(response.data.card.tresc)
-        setIterText(response.data.card.ilosc)
-        setVodkaShot(response.data.card.kara)
-        setVersionText('Classic')
-      } catch (error) {
-        console.log(error);
-      }
-    }
-    getCard()
-  }, [])
 
 
 
@@ -203,4 +186,4 @@ function AdminSingleCard(props) {
   )
 }
 
-export default AdminSingleCard
+export default AdminNewCard

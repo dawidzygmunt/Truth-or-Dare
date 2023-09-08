@@ -138,7 +138,7 @@ button:hover {
 
 .container-settings .main-frame {
   min-width: 400px;
-  max-width: 700px;
+  max-width: 550px;
   width: 100%;
   /* padding: 10px; */
   background-color: #b8c5d6;
@@ -184,11 +184,14 @@ form {
 .container-settings .type {
   margin-top: 0;
   margin-right: 0;
-  border-radius: 18px;
-  padding: 20px 10px;
+  border-radius: 15px;
+  font-size: 24px;
+  font-weight: 600;
+  text-align: center;
+  padding: 15px 10px;
   height: auto;
   width: 100%;
-  transform: scale(102%) translateX(-1%);
+  transform: scale(101%);
 }
 
 .container-settings .content {
@@ -208,9 +211,13 @@ form {
   font-size: 20px;
   background-color: #2562b1;
   box-shadow: 3px 3px 10px #454545;
-  color: white
+  color: white;
+  transition: all 0.3s ease;
 }
 
+.container-settings .submitButton:hover {
+  background-color: #174c92;
+}
 
 
 
@@ -251,25 +258,6 @@ form {
   align-items: center;
 }
 
-
-.container-settings .test1337 {
-  border: none;
-  outline: none;
-  text-align: center;
-  border-radius: 11px;
-  margin: 20px 0;
-  padding: 0px 0px;
-  width: 90%;
-  filter: none;
-  box-shadow: 10px 10px 10px -8px gray;
-  transition: all 0.3s ease 0s;
-  font-size: 20px;
-  background-color: rgb(239, 237, 241);
-  margin-left: 5px;
-  color: black;
-  font-size: 28px;
-}
-
 div label {
   margin: 0;
   margin-left: 10px;
@@ -277,16 +265,8 @@ div label {
   font-weight: 600;
 }
 
-.container-settings .card {
-  width: 300px;
-  min-height: 400px;
-  max-height: 400px;
-  background-color: #fff;
-  margin-top: 9rem;
-  display: flex;
-  align-items: center;
-  text-align: center;
-  border-radius: 30px;
+.container-settings .right .card {
+  margin-top: 11rem;
 }
 
 .container-settings .card-type h1 {
@@ -349,11 +329,20 @@ div label {
   width: 60px;
 }
 
-.container-settings .options button {
+.container-settings .options .image-button {
   margin: 20px;
   padding: 25px 25px;
   border-radius: 100px;
-  background-color: #ebb78d;
+  background-color: #b8c5d6;
+  transition: all 0.3s ease;
+}
+
+.container-settings .options .image-button-active {
+  margin: 20px;
+  padding: 25px 25px;
+  border-radius: 100px;
+  background-color: #2562b1;
+  transition: all 0.3s ease;
 }
 
 
@@ -367,7 +356,7 @@ div label {
   background-color: var(--color-background);
   margin: 0 auto;
   gap: 1.8rem;
-  grid-template-columns: 12rem auto 23rem;
+  grid-template-columns: 12rem auto 20rem;
   font-size: 14px;
   font-family: 'poppins', sans-serif;
   user-select: none;
@@ -391,7 +380,7 @@ aside .toogle .logo {
 
 aside .toogle .logo img {
   width: 2rem;
-  height: 2rem;
+  height: 2.3rem;
 }
 
 aside .toogle .close {
@@ -575,7 +564,7 @@ main .analyse .progress-circle .percentage {
   background-color: var(--color-background);
   margin: 0 auto;
   gap: 1.8rem;
-  grid-template-columns: 12rem auto 23rem;
+  grid-template-columns: 12rem auto;
   font-size: 14px;
   font-family: 'poppins', sans-serif;
   user-select: none;
@@ -601,4 +590,16 @@ main .analyse .progress-circle .percentage {
   display: flex;
   position: absolute;
 }
+
+ .admin-cards-container .h1-title {
+  font-size: 56px;
+  font-weight: 400;
+  margin: 1rem 3.5rem
+}
+
+.cards-content-wrapper {
+  display: flex;
+  flex-direction: column;
+}
+
 

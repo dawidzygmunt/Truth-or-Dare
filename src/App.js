@@ -9,6 +9,7 @@ import MainGame from './component/gameMain/main';
 import AdminPanel from './component/adminPanel/adminPanel';
 import SearchAllCards from './component/adminPanel/AllCards/allCard';
 import AdminSingleCard from './component/adminPanel/AllCards/adminSignleCard';
+import AdminNewCard from './component/adminPanel/newCard/newCard';
 
 function App() {
   return (
@@ -23,6 +24,7 @@ function App() {
           <Route path='/settings/panel' element={<AddCardPanel />}></Route>
           <Route path='/admin/all-cards' element={<SearchAllCards />}></Route>
           <Route path='/admin/edit-single/:info' element={<AdminSingleCard />}></Route>
+          <Route path='/admin/new-card' element={<AdminNewCard />}></Route>
         </Routes>
       </Router>
     </div>

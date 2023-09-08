@@ -26,14 +26,16 @@ function SearchAllCards(props) {
   return (
     <div className="admin-cards-container">
       <SideNavbar />
-      <div className="all-cards-container">
-        <div className="cards-grid">
-          {players.map((card) => (
-            <Card cardID={card._id} contentText={card.tresc} type={card.typ} ilosc={card.ilosc} kara={card.kara} />
-          ))}
+      <div className="cards-content-wrapper">
+        <h1 className="h1-title">Wszystkie karty</h1>
+        <div className="all-cards-container">
+          <div className="cards-grid">
+            {players.map((card) => (
+              <Card cardID={card._id} contentText={card.tresc} type={card.typ} ilosc={card.ilosc} kara={card.kara} />
+            ))}
+          </div>
         </div>
       </div>
-
     </div>
   )
 }

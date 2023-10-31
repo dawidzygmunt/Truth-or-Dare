@@ -9,7 +9,7 @@ function SearchAllCards(props) {
   useEffect(() => {
     const getCards = async () => {
       try {
-        const response = await axios.get('../api/v1/cards')
+        const response = await axios.get('/api/v1/cards')
         const fetchedCards = await response.data.cards
         console.log(fetchedCards);
         setPlayers(fetchedCards)
@@ -30,8 +30,8 @@ function SearchAllCards(props) {
         <h1 className="h1-title">Wszystkie karty</h1>
         <div className="all-cards-container">
           <div className="cards-grid">
-            {players.map((card) => (
-              <Card cardID={card._id} contentText={card.tresc} type={card.typ} ilosc={card.ilosc} kara={card.kara} />
+            {players.map((card, index) => (
+              <Card cardID={card._id} contentText={card.tresc} type={card.typ} ilosc={card.ilosc} kara={card.kara} key={index} />
             ))}
           </div>
         </div>

@@ -83,7 +83,7 @@ function MainGame() {
 
   const getPlayers = async () => {
     try {
-      const respond = await axios.get('api/v1/players')
+      const respond = await axios.get('/api/v1/players')
       const fetchedPlayers = respond.data.players
       setPlayers(fetchedPlayers)
       return fetchedPlayers
@@ -109,7 +109,7 @@ function MainGame() {
   const drawQuestion = async (index, player) => {
     try {
       // Zebranie pytania z bazy danych i wysłanie propsów do karty i wyświetlenie gracza nad kartą
-      const response = await axios.get('api/v1/game/draw/?typ=Prawda')
+      const response = await axios.get('/api/v1/game/draw/?typ=Prawda')
       const question = response.data.card[0]
       console.log(response.data.card[0]);
       setQuestion(question)
@@ -118,7 +118,7 @@ function MainGame() {
       setSelectedPlayer(player.playerName)
       // Zmniejszenie ilosci pytania w bazie danych
       const value = response.data.card[0].ilosc
-      await axios.patch('api/v1/game/' + question._id, { ilosc: (value - 1) })
+      await axios.patch('/api/v1/game/' + question._id, { ilosc: (value - 1) })
 
       // Dodanie questionValue graczoi
       const questionValue = player.questionValue
@@ -141,7 +141,7 @@ function MainGame() {
       setSelectedPlayer(player.playerName)
       // Zmniejszenie ilosci wyzwania w bazie danych
       const value = challenge.ilosc
-      await axios.patch('api/v1/game/' + challenge._id, { ilosc: (value - 1) })
+      await axios.patch('/api/v1/game/' + challenge._id, { ilosc: (value - 1) })
       console.log('nowa ilosc: ' + (value - 1));
       // Wyzerowanie questionValue graczoi
       await axios.patch('/api/v1/players/' + player._id, { questionValue: 0 })

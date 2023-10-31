@@ -39,7 +39,7 @@ function NewGame() {
         playerName: inputValue
       }
       try {
-        await axios.post('api/v1/players', allInputData)
+        await axios.post('/api/v1/players', allInputData)
         showPlayers()
       } catch (error) {
         console.error(error)
@@ -49,7 +49,7 @@ function NewGame() {
 
   const showPlayers = async () => {
     try {
-      const respond = await axios.get('api/v1/players')
+      const respond = await axios.get('/api/v1/players')
       const fetchedPlayers = respond.data.players;
       setPlayers(fetchedPlayers)
       setLoading('')
@@ -80,17 +80,16 @@ function NewGame() {
       </form>
       <section className={styles["players-container"]}>
         <div>
-          {players.map((player) => (
+          {players !== undefined && players.map((player) => (
             <SinglePlayer key={player._id} playerName={player.playerName} playerID={player._id} />
           ))}
         </div>
         <p className={styles["loading-text"]}>{loading}</p>
         <div className={styles["players"]}></div>
         <div className={styles['next-btn-section']}>
-          <a href="/#"><button className={styles['back-btn']}>Wróć</button></a>
-          <a href="/main"><button className={styles['next-btn']}>Przejdź dalej</button></a>
+          <a href="/cards"><button className={styles['back-btn']}>Wróć</button></a>
+          <a href="/cards/main"><button className={styles['next-btn']}>Przejdź dalej</button></a>
         </div>
-
       </section>
     </div>
   )

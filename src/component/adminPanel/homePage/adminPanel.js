@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react"
-import AnalysticTile from "./analystic/analysticComponent"
-import SideNavbar from "./aside/sideNavbar"
+import AnalysticTile from "./analysticComponent"
+import SideNavbar from "../aside/sideNavbar"
 import axios from "axios"
 
 

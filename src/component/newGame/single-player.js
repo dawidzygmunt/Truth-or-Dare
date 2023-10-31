@@ -24,7 +24,7 @@ const SinglePlayer = (props) => {
 
   const handleDeleteButton = async () => {
     console.log(playerID);
-    const response = await axios.delete('api/v1/players/' + playerID)
+    const response = await axios.delete('/api/v1/players/' + playerID)
     if (!response) {
       alert('Nie poprawne ID')
     }
